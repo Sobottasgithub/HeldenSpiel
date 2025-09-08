@@ -1,10 +1,10 @@
 package ps.edu.heldenspiel.monster;
 
-public class Morvex {
+public class Monster {
     int attackDamage;
     int health;
 
-    public Morvex(int attackDamage, int health) {
+    public Monster(int attackDamage, int health) {
         this.attackDamage = attackDamage;
         this.health = health;
     }
