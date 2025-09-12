@@ -11,8 +11,12 @@ public class Controller {
 
 
     public Controller() throws IOException {
-        Hero atherion = new Hero("Atherion", 11, 17, 32);
+        CombatRule combatRule = new CombatRule();
+
+        Hero atherion = new Hero("Atherion", 11, 11, 32);
         Monster monster = new Monster(12, 46);
+
+        combatRule.fight(atherion, monster);
     }
 
     @FXML

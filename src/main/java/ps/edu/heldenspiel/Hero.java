@@ -22,10 +22,6 @@ public class Hero {
         this.health = health;
     }
 
-    void attack(Monster monster, Hero hero) {
-        combatRule.fight(hero, monster);
-    }
-
     public int getAttackDamage() {
         return this.attackDamage;
     }
