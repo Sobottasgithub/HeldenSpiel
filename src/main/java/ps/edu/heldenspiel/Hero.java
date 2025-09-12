@@ -1,7 +1,4 @@
-package ps.edu.heldenspiel.heros;
-
-import ps.edu.heldenspiel.monster.Monster;
-import ps.edu.heldenspiel.weapons.CombatRule;
+package ps.edu.heldenspiel;
 
 public class Hero {
     String name;

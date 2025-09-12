@@ -1,4 +1,4 @@
-package ps.edu.heldenspiel.monster;
+package ps.edu.heldenspiel;
 
 public class Monster {
     int attackDamage;

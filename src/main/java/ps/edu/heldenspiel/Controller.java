@@ -1,9 +1,5 @@
 package ps.edu.heldenspiel;
 
-import ps.edu.heldenspiel.heros.Hero;
-import ps.edu.heldenspiel.monster.Monster;
-import ps.edu.heldenspiel.weapons.CombatRule;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 

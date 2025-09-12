@@ -1,6 +1,4 @@
-package ps.edu.heldenspiel.weapons;
-import ps.edu.heldenspiel.monster.Monster;
-import ps.edu.heldenspiel.heros.Hero;
+package ps.edu.heldenspiel;
 
 public class CombatRule {
     public CombatRule() {
