@@ -1,24 +1,14 @@
 package ps.edu.heldenspiel.weapons;
 
-import ps.edu.heldenspiel.Hero;
-
-public class Fist implements Weapon{
-    private int healthBuff = 0;
-    private int attackDamage = 17;
-    private int strength = 11;
-
-    @Override
-    public int getHealthBuff() {
-        return healthBuff;
+public class Fist extends Weapon {
+    public Fist() {
+        healthBuff = 0;
+        attackDamage = 17;
+        strength = 11;
     }
 
     @Override
-    public int getAttackDamage() {
-        return attackDamage;
-    }
-
-    @Override
-    public int getStrength() {
-        return strength;
+    public void makeSound() {
+        System.out.println("pow");
     }
 }

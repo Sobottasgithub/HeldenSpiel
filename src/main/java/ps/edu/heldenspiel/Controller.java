@@ -1,7 +1,5 @@
 package ps.edu.heldenspiel;
 
-import ps.edu.heldenspiel.Weapon;
-
 import java.io.IOException;
 
 public class Controller {

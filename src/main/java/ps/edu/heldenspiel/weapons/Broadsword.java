@@ -1,24 +1,14 @@
 package ps.edu.heldenspiel.weapons;
 
-import ps.edu.heldenspiel.Hero;
-
-public class Broadsword implements Weapon{
-    private int healthBuff = 2;
-    private int attackDamage = 20;
-    private int strength = 14;
-
-    @Override
-    public int getHealthBuff() {
-        return healthBuff;
+public class Broadsword extends Weapon {
+    public Broadsword() {
+        healthBuff = 2;
+        attackDamage = 20;
+        strength = 14;
     }
 
     @Override
-    public int getAttackDamage() {
-        return attackDamage;
-    }
-
-    @Override
-    public int getStrength() {
-        return strength;
+    public void makeSound() {
+        System.out.println("Krach");
     }
 }
