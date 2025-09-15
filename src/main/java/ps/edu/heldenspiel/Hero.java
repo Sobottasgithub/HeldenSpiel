@@ -15,10 +15,10 @@ public class Hero {
         this.health = 23;
     }
 
-    public Hero(String name, int strength, int attackStrength, int health) {
+    public Hero(String name, int strength, int attackDamage, int health) {
         this.name = name;
         this.strength = strength;
-        this.attackDamage = attackStrength;
+        this.attackDamage = attackDamage;
         this.health = health;
     }
 

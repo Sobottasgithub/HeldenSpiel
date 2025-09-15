@@ -1,14 +1,8 @@
 package ps.edu.heldenspiel;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-
 import java.io.IOException;
 
 public class Controller {
-    @FXML
-    private Label welcomeText;
-
 
     public Controller() throws IOException {
         CombatRule combatRule = new CombatRule();
@@ -17,10 +11,5 @@ public class Controller {
         Monster monster = new Monster(12, 46);
 
         combatRule.fight(atherion, monster);
-    }
-
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Heldenspiel");
     }
 }
