@@ -36,4 +36,6 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+## for WIN ARM64 compatibilyty ##
 pom.xml
