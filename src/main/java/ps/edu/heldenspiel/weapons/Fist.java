@@ -1,8 +1,6 @@
 package ps.edu.heldenspiel.weapons;
 
-import ps.edu.heldenspiel.Hero;
-
-public class Fist implements Weapon{
+public class Fist implements Weapon {
     private int healthBuff = 0;
     private int attackDamage = 17;
     private int strength = 11;

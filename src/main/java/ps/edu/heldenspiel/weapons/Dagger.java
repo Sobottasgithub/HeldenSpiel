@@ -1,8 +1,6 @@
 package ps.edu.heldenspiel.weapons;
 
-import ps.edu.heldenspiel.Hero;
-
-public class Dagger implements Weapon{
+public class Dagger implements Weapon {
     private int healthBuff = 1;
     private int attackDamage = 19;
     private int strength = 12;

@@ -1,8 +1,6 @@
 package ps.edu.heldenspiel.weapons;
 
-import ps.edu.heldenspiel.Hero;
-
-public class Broadsword implements Weapon{
+public class Broadsword implements Weapon {
     private int healthBuff = 2;
     private int attackDamage = 20;
     private int strength = 14;

@@ -6,11 +6,11 @@ public class CombatRule {
     }
 
     public void fight(Hero hero, Monster monster) {
-        if(hero.getAttackDamage() > monster.getAttackDamage()) {
-            monster.setHealth(monster.getHealth()-hero.getAttackDamage());
+        if (hero.getAttackDamage() > monster.getAttackDamage()) {
+            monster.setHealth(monster.getHealth() - hero.getAttackDamage());
             System.out.println("Monster losese Health: " + monster.getHealth());
         } else {
-            hero.setHealth(hero.getHealth()-monster.getAttackDamage());
+            hero.setHealth(hero.getHealth() - monster.getAttackDamage());
             System.out.println("Hero losese Health: " + hero.getHealth());
         }
     }

@@ -1,12 +1,5 @@
 package ps.edu.heldenspiel;
 
-<<<<<<< HEAD
-import ps.edu.heldenspiel.Weapon;
-
-import java.io.IOException;
-
-=======
->>>>>>> cfd776e (Changed Weapon material structure)
 public class Controller {
 
     public Controller() {
