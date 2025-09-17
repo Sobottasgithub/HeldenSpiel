@@ -12,8 +12,8 @@ public class CombatRule {
         int numberHero = diceHero.rollDice();
         int numberMonster = diceMonster.rollDice();
 
-        System.out.println(hero.getName() + " hat " + numberHero + " gewürfelt mit " + diceHero);
-        System.out.println("Das Monster hat " + numberMonster + " gewürfelt mit " + diceMonster);
+        System.out.println(hero.getName() + " hat " + numberHero + " gewürfelt mit " + diceHero.getName());
+        System.out.println("Das Monster hat " + numberMonster + " gewürfelt mit " + diceMonster.getName());
 
         if (numberHero > numberMonster) {
             monster.setHealth(monster.getHealth() - 1);
@@ -28,9 +28,9 @@ public class CombatRule {
     }
 
     public Dice selectDice() {
-        Dice d2 = new Dice(1, 2);
-        Dice d6 = new Dice(1, 6);
-        Dice d10 = new Dice(1, 10);
+        Dice d2 = new Dice(1, 2, "d2");
+        Dice d6 = new Dice(1, 6, "d6");
+        Dice d10 = new Dice(1, 10, "d10");
         if (d2.rollDice() == 1) {
             return d10;
         } else {
