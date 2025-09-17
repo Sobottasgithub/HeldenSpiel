@@ -2,31 +2,26 @@ package ps.edu.heldenspiel;
 
 public class Weapon {
     private String name;
-    private int magic;
+    private WeaponMaterial weaponMaterial;
 
-    public Weapon(String name) {
+    public Weapon(String name, WeaponMaterial weaponMaterial) {
         this.name = name;
-
-        if(name == "wooden sword") {
-            this.magic = 12;
-        } else if(name == "stone sword") {
-            this.magic = 24;
-        } else if(name == "iron sword") {
-            this.magic = 26;
-        } else {
-            magic = 1;
-        }
+        this.weaponMaterial = weaponMaterial;
     }
 
-    public int calcBonus(int strength) {
-        return magic+strength;
+    public int getDamage(int strength) {
+        return getMagic() + strength;
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 
     public int getMagic() {
-        return this.magic;
+        return weaponMaterial.getMagic();
+    }
+
+    public String getMaterial() {
+        return weaponMaterial.getName();
     }
 }

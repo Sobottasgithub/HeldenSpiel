@@ -1,35 +1,26 @@
 package ps.edu.heldenspiel;
 
 public class Hero {
-    String name;
-    int strength;
-    int attackDamage;
-    int health;
+    private String name;
+    private int strength;
+    private int health;
 
     Weapon weapon;
     CombatRule combatRule = new CombatRule();
-
-    public Hero() {
-        this.name = "Atherion";
-        this.strength = 11;
-        this.health = 23;
-        Weapon weapon = new Weapon("wooden sword");
-        this.attackDamage = weapon.calcBonus(this.strength);
-    }
 
     public Hero(String name, int health, int strength, Weapon weapon) {
         this.name = name;
         this.strength = strength;
         this.health = health;
-        this.attackDamage = weapon.calcBonus(this.strength);
+        this.weapon = weapon;
     }
 
     public int getAttackDamage() {
-        return this.attackDamage;
+        return weapon.getDamage(this.strength);
     }
 
-    public void setAttackDamage(int attackDamage) {
-        this.attackDamage = attackDamage;
+    public void setWeapon(Weapon weapon) {
+        this.weapon = weapon;
     }
 
     public String getName() {

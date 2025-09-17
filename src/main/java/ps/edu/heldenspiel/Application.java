@@ -3,7 +3,6 @@ package ps.edu.heldenspiel;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import ps.edu.heldenspiel.weapons.*;
 
 import java.io.IOException;
 
@@ -19,9 +18,5 @@ public class Application extends javafx.application.Application {
 
     public static void main(String[] args) {
         // launch();
-        Broadsword bs = new Broadsword();
-        Dagger dg = new Dagger();
-
-        dg.hit(bs);
     }
 }
