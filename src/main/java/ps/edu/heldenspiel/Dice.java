@@ -7,7 +7,8 @@ public class Dice {
     private int end;
     Random dice = new Random();
 
-    public Dice() {}
+    public Dice() {
+    }
 
     public Dice(int start, int end) {
         setSides(start, end);
