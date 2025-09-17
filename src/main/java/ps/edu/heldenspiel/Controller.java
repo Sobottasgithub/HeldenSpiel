@@ -1,5 +1,7 @@
 package ps.edu.heldenspiel;
 
+import java.util.concurrent.TimeUnit;
+
 public class Controller {
 
     public Controller() {
@@ -10,6 +12,14 @@ public class Controller {
 
         while(atherion.getHealth() > 0 && monster.getHealth() > 0) {
             combatRule.fight(atherion, monster);
+            try {
+                Thread.sleep(1000); // Sleep for 2 seconds
+            } catch (InterruptedException e) {}
+        }
+        if(atherion.getHealth() == 0) {
+            System.out.println("Hero loses!");
+        } else {
+            System.out.println("Monster loses!");
         }
     }
 
