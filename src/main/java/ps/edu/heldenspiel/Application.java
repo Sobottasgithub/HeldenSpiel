@@ -17,6 +17,10 @@ public class Application extends javafx.application.Application {
     }
 
     public static void main(String[] args) {
+<<<<<<< HEAD
         launch();
+=======
+        // launch();
+>>>>>>> cfd776e (Changed Weapon material structure)
     }
 }
