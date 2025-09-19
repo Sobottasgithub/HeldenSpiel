@@ -1,6 +1,9 @@
-package ps.edu.heldenspiel;
+package ps.edu.heldenspiel.hero;
 
-public class Hero {
+import ps.edu.heldenspiel.CombatRule;
+import ps.edu.heldenspiel.Weapon;
+
+public abstract class Hero {
     private String name;
     private int strength;
     private int health;

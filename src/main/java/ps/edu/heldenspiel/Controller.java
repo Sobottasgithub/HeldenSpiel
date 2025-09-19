@@ -1,11 +1,14 @@
 package ps.edu.heldenspiel;
 
+import ps.edu.heldenspiel.hero.Hero;
+import ps.edu.heldenspiel.hero.Magician;
+
 public class Controller {
 
     public Controller() {
         CombatRule combatRule = new CombatRule();
         Weapon woodSword = new Weapon("sword", WeaponMaterial.WOOD);
-        Hero atherion = new Hero("atherion", 23, 12, woodSword);
+        Hero atherion = new Magician("atherion", 23, 12, woodSword);
         Monster monster = new Monster(12, 46);
 
         while (atherion.getHealth() > 0 && monster.getHealth() > 0) {

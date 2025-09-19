@@ -1,5 +1,7 @@
 package ps.edu.heldenspiel;
 
+import ps.edu.heldenspiel.hero.Hero;
+
 public class CombatRule {
     public CombatRule() {
 

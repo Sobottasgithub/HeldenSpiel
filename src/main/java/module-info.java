@@ -14,4 +14,6 @@ module ps.edu.heldenspiel {
     opens ps.edu.heldenspiel to javafx.fxml;
 
     exports ps.edu.heldenspiel;
+    exports ps.edu.heldenspiel.hero;
+    opens ps.edu.heldenspiel.hero to javafx.fxml;
 }
