@@ -5,8 +5,8 @@ import ps.edu.heldenspiel.Weapon;
 
 public abstract class Hero {
     private String name;
-    private int strength;
-    private int health;
+    protected int strength;
+    protected int health;
 
     Weapon weapon;
     CombatRule combatRule = new CombatRule();
