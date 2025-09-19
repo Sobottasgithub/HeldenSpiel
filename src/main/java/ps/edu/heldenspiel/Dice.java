@@ -22,7 +22,7 @@ public class Dice {
     }
 
     public int rollDice() {
-        return this.dice.nextInt(start, end);
+        return this.dice.nextInt(start, end + 1);
     }
 
     public String getName() {
