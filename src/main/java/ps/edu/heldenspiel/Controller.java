@@ -1,24 +1,22 @@
 package ps.edu.heldenspiel;
 
-import ps.edu.heldenspiel.hero.Hero;
-import ps.edu.heldenspiel.hero.Magician;
-
 public class Controller {
 
     public Controller() {
-        CombatRule combatRule = new CombatRule();
-        Weapon woodSword = new Weapon("sword", WeaponMaterial.WOOD);
-        Hero atherion = new Magician("atherion", 23, 12, woodSword);
+        HeroParty heroParty = new HeroParty();
+
         Monster monster = new Monster(12, 46);
 
-        while (atherion.getHealth() > 0 && monster.getHealth() > 0) {
-            combatRule.fight(atherion, monster);
+        CombatRule combatRule = new CombatRule();
+
+        while (heroParty.getHealth() > 0 && monster.getHealth() > 0) { // TODO: FIX (NOT ENOUGH TIME)
+            combatRule.fight(heroParty.get(0), monster);
             try {
                 Thread.sleep(1000); // Sleep for 2 seconds
             } catch (InterruptedException e) {
             }
         }
-        if (atherion.getHealth() == 0) {
+        if (heroParty.getHealth() == 0) { // TODO: FIX (NOT ENOUGH TIME)
             System.out.println("Hero loses!");
         } else {
             System.out.println("Monster loses!");
