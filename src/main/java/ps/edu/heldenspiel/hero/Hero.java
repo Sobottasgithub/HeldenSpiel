@@ -12,12 +12,12 @@ public abstract class Hero {
     Weapon weapon;
     CombatRule combatRule = new CombatRule();
 
-    public Hero(String name, int health, int strength, Weapon weapon, int maxHealth) {
+    public Hero(String name, int health, int strength, Weapon weapon) {
         this.name = name;
         this.strength = strength;
         this.health = health;
         this.weapon = weapon;
-        this.maxHealth = maxHealth;
+        this.maxHealth = health;
     }
 
     public int getAttackDamage() {
