@@ -10,7 +10,7 @@
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
-      jdk = pkgs.jdk.override {
+      jdk = pkgs.jdk23.override {
         enableJavaFX = true;
       };
     in
