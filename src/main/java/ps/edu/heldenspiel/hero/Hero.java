@@ -7,15 +7,17 @@ public abstract class Hero {
     private String name;
     protected int strength;
     protected int health;
+    protected int maxHealth;
 
     Weapon weapon;
     CombatRule combatRule = new CombatRule();
 
-    public Hero(String name, int health, int strength, Weapon weapon) {
+    public Hero(String name, int health, int strength, Weapon weapon, int maxHealth) {
         this.name = name;
         this.strength = strength;
         this.health = health;
         this.weapon = weapon;
+        this.maxHealth = maxHealth;
     }
 
     public int getAttackDamage() {
@@ -40,5 +42,9 @@ public abstract class Hero {
 
     public void setHealth(int health) {
         this.health = health;
+    }
+
+    public int getMaxHealth() {
+        return maxHealth;
     }
 }
