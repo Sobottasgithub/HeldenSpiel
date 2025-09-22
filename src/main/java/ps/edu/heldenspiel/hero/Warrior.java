@@ -6,7 +6,7 @@ public class Warrior extends Hero {
     private int endurance = 2;
 
     public Warrior(String name, int health, int strength, Weapon weapon) {
-        super(name, health, strength, weapon, health);
+        super(name, health, strength, weapon);
     }
 
     @Override
