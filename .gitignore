@@ -39,3 +39,10 @@ build/
 
 ## for WIN ARM64 compatibilyty ##
 pom.xml
+
+## NIX ##
+result
+.direnv/
+
+## patches ##
+*.patch
