@@ -39,6 +39,7 @@
               exit 1
             elif [ ''${#jars[@]} -gt 1 ]; then
               echo "Multiple JAR files found: ''${jars[*]}" >&2
+              exit 1
             else
               JAR="''${jars[0]}"
             fi
@@ -61,6 +62,7 @@
           pkgs.google-java-format
           pkgs.findutils
           pkgs.scenebuilder
+          pkgs.xmlindent
           maven
         ];
 
