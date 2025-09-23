@@ -9,6 +9,7 @@ public class Controller {
 
     CombatRule combatRule = new CombatRule();
 
+    /*
     while (heroParty.getHealth() > 0 && monster.getHealth() > 0) { // TODO: FIX (NOT ENOUGH TIME)
       combatRule.fight(heroParty.get(0), monster);
       try {
@@ -21,6 +22,7 @@ public class Controller {
     } else {
       System.out.println("Monster loses!");
     }
+    */
   }
 
   public static void main(String[] args) {
