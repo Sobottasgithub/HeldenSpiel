@@ -10,6 +10,7 @@
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
+      maven = pkgs.maven;
       jdk = pkgs.jdk23.override {
         enableJavaFX = true;
       };
@@ -17,6 +18,13 @@
     {
       packages.${system} = {
         inherit jdk;
+        default = maven.buildMavenPackage {
+          pname = "HeldenSpiel";
+          version = "1.0.0";
+          src = ./.;
+          mvnHash = "";
+          mvnJdk = jdk;
+        };
       };
       devShells.${system}.default = pkgs.mkShell {
         buildInputs = [
@@ -24,7 +32,7 @@
           pkgs.google-java-format
           pkgs.findutils
           pkgs.scenebuilder
-          pkgs.maven
+          maven
         ];
 
         shellHook = '''';
