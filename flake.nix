@@ -22,8 +22,10 @@
           pname = "HeldenSpiel";
           version = "1.0.0";
           src = ./.;
-          mvnHash = "sha256-1cBre3AvOXD5F77jTKr8lxoEoEuM7Zaa0l1+7Xj2BzU=";
+          mvnHash = "sha256-my6yElw8xJN8w74ql7MzeGfu2X59md9620qSK5XJE6A=";
           mvnJdk = jdk;
+
+          patches = [ ./patches/0001-update-PATCH-add-mainClass-using-maven-jar-plugin.patch];
 
           nativeBuildInputs = [ pkgs.makeWrapper ];
 
@@ -51,6 +53,7 @@
             echo "Wrapping $JAR_NAME"
             makeWrapper ${pkgs.lib.getExe jdk} $out/bin/heldenspiel --add-flags "-jar $out/share/HeldenSpiel/$JAR_NAME"
           '';
+        
           meta = {
             mainProgram = "heldenspiel";
           };
