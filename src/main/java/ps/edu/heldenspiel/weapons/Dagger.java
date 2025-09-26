@@ -1,22 +1,22 @@
 package ps.edu.heldenspiel.weapons;
 
 public class Dagger implements Weapon {
-    private int healthBuff = 1;
-    private int attackDamage = 19;
-    private int strength = 12;
+  private int healthBuff = 1;
+  private int attackDamage = 19;
+  private int strength = 12;
 
-    @Override
-    public int getHealthBuff() {
-        return healthBuff;
-    }
+  @Override
+  public int getHealthBuff() {
+    return healthBuff;
+  }
 
-    @Override
-    public int getAttackDamage() {
-        return attackDamage;
-    }
+  @Override
+  public int getAttackDamage() {
+    return attackDamage;
+  }
 
-    @Override
-    public int getStrength() {
-        return strength;
-    }
+  @Override
+  public int getStrength() {
+    return strength;
+  }
 }
