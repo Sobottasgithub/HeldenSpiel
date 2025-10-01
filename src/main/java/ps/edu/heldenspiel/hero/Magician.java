@@ -1,11 +1,10 @@
 package ps.edu.heldenspiel.hero;
 
+import ps.edu.heldenspiel.Controller;
 import ps.edu.heldenspiel.Weapon;
 import java.net.URL;
 
 public class Magician extends Hero {
-  protected URL imagePath = getClass().getResource("images/standartHero.png");
-
   public Magician(String name, int health, int strength, Weapon weapon) {
     super(name, health, strength, weapon);
   }
@@ -16,5 +15,9 @@ public class Magician extends Hero {
     } else {
       friendlyToHeal.setHealth(friendlyToHeal.getMaxHealth());
     }
+  }
+
+  public URL getImagePath() {
+    return Controller.class.getResource("images/magician.png");
   }
 }

@@ -9,7 +9,7 @@ public class Application extends javafx.application.Application {
   @Override
   public void start(Stage stage) throws IOException {
     FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("main_scene.fxml"));
-    Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+    Scene scene = new Scene(fxmlLoader.load(), 320, 300);
     stage.setTitle("Heldenspiel");
     stage.setScene(scene);
     stage.show();

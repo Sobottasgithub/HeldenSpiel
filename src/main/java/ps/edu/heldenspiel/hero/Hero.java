@@ -1,6 +1,7 @@
 package ps.edu.heldenspiel.hero;
 
 import ps.edu.heldenspiel.CombatRule;
+import ps.edu.heldenspiel.Controller;
 import ps.edu.heldenspiel.Weapon;
 
 import java.net.URL;
@@ -11,7 +12,6 @@ public abstract class Hero {
   protected int health;
   protected int maxHealth;
   protected int endurance = 0;
-  protected URL imagePath = getClass().getResource("images/standartHero.png");
 
   Weapon weapon;
   CombatRule combatRule = new CombatRule();
@@ -57,6 +57,6 @@ public abstract class Hero {
   }
 
   public URL getImagePath() {
-    return imagePath;
+    return Controller.class.getClassLoader().getResource("/images/standartHero.png");
   }
 }

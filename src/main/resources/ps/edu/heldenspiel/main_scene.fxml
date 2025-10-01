@@ -1,14 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="131.0" prefWidth="251.0" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/22" fx:controller="ps.edu.heldenspiel.Controller">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
-   <Label prefHeight="16.0" prefWidth="147.0" text="Heldenspiel" />
-
-    <Label fx:id="welcomeText" />
-</VBox>
+<GridPane prefHeight="337.0" prefWidth="422.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ps.edu.heldenspiel.Controller">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="218.5999755859375" minWidth="10.0" prefWidth="181.79998779296875" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="228.19998779296873" minWidth="10.0" prefWidth="194.60001220703123" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints maxHeight="158.00000610351563" minHeight="10.0" prefHeight="43.799993896484374" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="298.00000228881834" minHeight="10.0" prefHeight="271.8000061035156" vgrow="SOMETIMES" />
+   </rowConstraints>
+   <children>
+      <Label text="HELDENSPIEL">
+         <GridPane.margin>
+            <Insets left="10.0" top="10.0" />
+         </GridPane.margin>
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="start_uiButton" alignment="CENTER" mnemonicParsing="false" onAction="#onStart_uiButton" prefHeight="24.0" prefWidth="62.0" text="Start" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+         <GridPane.margin>
+            <Insets right="10.0" top="10.0" />
+         </GridPane.margin>
+      </Button>
+      <ImageView fx:id="hero_imageView" fitHeight="265.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1" />
+      <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="87.20001831054688" minHeight="7.200023078918463" prefHeight="44.80001220703125" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="181.59997692108155" minHeight="10.0" prefHeight="49.59999999999999" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="190.39999389648438" minHeight="10.0" prefHeight="188.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <VBox prefHeight="42.0" prefWidth="218.0">
+               <children>
+                  <Label text="Hero" />
+                  <ChoiceBox fx:id="hero_uiChoiceBox" prefHeight="24.0" prefWidth="215.0" VBox.vgrow="ALWAYS" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
+               <children>
+                  <Label text="Weapon">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin></Label>
+                  <ChoiceBox fx:id="weapon_uiChoiceBox" prefHeight="24.0" prefWidth="213.0" VBox.vgrow="ALWAYS" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
+               <children>
+                  <Label fx:id="health_uiLabel" text="Health:">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="strength_uiLabel" text="Strength:">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="endurance_uiLabel" text="Endurance:">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </GridPane>
+   </children>
+</GridPane>
