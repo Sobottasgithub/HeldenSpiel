@@ -6,7 +6,7 @@ import ps.edu.heldenspiel.Weapon;
 
 import java.net.URL;
 
-public abstract class Hero {
+public class Hero {
   private String name;
   protected int strength;
   protected int health;
@@ -20,6 +20,15 @@ public abstract class Hero {
     this.name = name;
     this.strength = strength;
     this.health = health;
+    this.weapon = weapon;
+    this.maxHealth = health;
+  }
+
+  public Hero(String name, int health, int strength, int endurance, Weapon weapon) {
+    this.name = name;
+    this.strength = strength;
+    this.health = health;
+    this.endurance = endurance;
     this.weapon = weapon;
     this.maxHealth = health;
   }
@@ -57,6 +66,6 @@ public abstract class Hero {
   }
 
   public URL getImagePath() {
-    return Controller.class.getClassLoader().getResource("/images/standartHero.png");
+    return Controller.class.getResource("images/standartHero.png");
   }
 }

@@ -2,10 +2,16 @@ package ps.edu.heldenspiel.hero;
 
 import ps.edu.heldenspiel.Controller;
 import ps.edu.heldenspiel.Weapon;
+import ps.edu.heldenspiel.WeaponMaterial;
+
 import java.net.URL;
 
 public class Warrior extends Hero {
   private int endurance = 2;
+
+  public Warrior() {
+    super("warrior", 16, 14, new Weapon("wood sword", WeaponMaterial.WOOD));
+  }
 
   public Warrior(String name, int health, int strength, Weapon weapon) {
     super(name, health, strength, weapon);
