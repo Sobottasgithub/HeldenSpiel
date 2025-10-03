@@ -1,9 +1,14 @@
 package ps.edu.heldenspiel.weapons;
 
-public interface Weapon {
-  public int getHealthBuff();
+public abstract class Weapon {
+    protected String name = "";
+    protected int attackDamage = 0;
 
-  public int getAttackDamage();
+    public String getName() {
+        return name;
+    }
 
-  public int getStrength();
+    public int getAttackDamage() {
+        return attackDamage;
+    }
 }

@@ -13,12 +13,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import ps.edu.heldenspiel.hero.Hero;
 import ps.edu.heldenspiel.hero.Magician;
 import ps.edu.heldenspiel.hero.Warrior;
 import javafx.fxml.Initializable;
+import ps.edu.heldenspiel.weapons.Weapon;
+import ps.edu.heldenspiel.weapons.Broadsword;
+import ps.edu.heldenspiel.weapons.Dagger;
+import ps.edu.heldenspiel.weapons.Fist;
 
 public class Controller implements Initializable {
   // Ui items main_scene
@@ -47,18 +50,22 @@ public class Controller implements Initializable {
   @Override
   public void initialize(URL location, ResourceBundle resources)  {
     // Init weapons and add to choiceBox
-    ps.edu.heldenspiel.Weapon woodSword = new Weapon("wood sword", WeaponMaterial.WOOD);
-    ps.edu.heldenspiel.Weapon stoneSword = new Weapon("stone sword", WeaponMaterial.STONE);
+    ps.edu.heldenspiel.weapons.Weapon fist = new Fist();
+    ps.edu.heldenspiel.weapons.Weapon dagger = new Dagger();
+    ps.edu.heldenspiel.weapons.Weapon broadsword = new Broadsword();
 
-    weapon_uiChoiceBox.getItems().add(woodSword.getName());
-    weapon_uiChoiceBox.getItems().add(stoneSword.getName());
+    weapon_uiChoiceBox.getItems().add(fist.getName());
+    weapon_uiChoiceBox.getItems().add(dagger.getName());
+    weapon_uiChoiceBox.getItems().add(broadsword.getName());
     weapon_uiChoiceBox.getSelectionModel().selectFirst();
 
     weapon_uiChoiceBox.setOnAction((event) -> {onChoiceBoxChanged();});
 
     // Add weapons to hashmap
-    this.weapons.put(woodSword.getName(), woodSword);
-    this.weapons.put(stoneSword.getName(), stoneSword);
+    this.weapons.put(fist.getName(), fist);
+    this.weapons.put(dagger.getName(), dagger);
+    this.weapons.put(broadsword.getName(), broadsword);
+
 
     // Init heros with standart weapon "wood sword" and add to choiceBox
     Hero magician = new Magician();
@@ -91,7 +98,7 @@ public class Controller implements Initializable {
     hero_imageView.setImage(imageObject);
 
     health_uiLabel.setText("Health: " + currentHero.getHealth());
-    strength_uiLabel.setText("Strength: " + currentHero.getStrength() + " + " + this.weapons.get(weapon_uiChoiceBox.getValue()).getDamage(0));
+    strength_uiLabel.setText("Strength: " + currentHero.getStrength() + " + " + this.weapons.get(weapon_uiChoiceBox.getValue()).getAttackDamage());
     endurance_uiLabel.setText("Endurance: " + currentHero.getEndurance());
   }
 
@@ -126,7 +133,7 @@ public class Controller implements Initializable {
       newHeroEndurance_uiSpinner.getValueFactory().setValue(1);
 
       // Create new Hero and add to ui
-      Hero hero = new Hero(newHeroName, newHeroHealth, newHeroStrength, newHeroEndurance, new Weapon("wood sword", WeaponMaterial.WOOD));
+      Hero hero = new Hero(newHeroName, newHeroHealth, newHeroStrength, newHeroEndurance, new Fist());
       hero_uiChoiceBox.getItems().add(hero.getName());
       this.heros.put(hero.getName(), hero);
     }

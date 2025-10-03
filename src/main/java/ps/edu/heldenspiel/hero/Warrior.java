@@ -1,8 +1,8 @@
 package ps.edu.heldenspiel.hero;
 
 import ps.edu.heldenspiel.Controller;
-import ps.edu.heldenspiel.Weapon;
-import ps.edu.heldenspiel.WeaponMaterial;
+import ps.edu.heldenspiel.weapons.Weapon;
+import ps.edu.heldenspiel.weapons.Fist;
 
 import java.net.URL;
 
@@ -10,7 +10,7 @@ public class Warrior extends Hero {
   private int endurance = 2;
 
   public Warrior() {
-    super("warrior", 16, 14, new Weapon("wood sword", WeaponMaterial.WOOD));
+    super("warrior", 16, 14, new Fist());
   }
 
   public Warrior(String name, int health, int strength, Weapon weapon) {
@@ -19,7 +19,7 @@ public class Warrior extends Hero {
 
   @Override
   public int getAttackDamage() {
-    return super.weapon.getDamage(this.strength + this.endurance);
+    return this.strength + this.endurance + this.weapon.getAttackDamage();
   }
 
   @Override

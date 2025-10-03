@@ -2,7 +2,7 @@ package ps.edu.heldenspiel.hero;
 
 import ps.edu.heldenspiel.CombatRule;
 import ps.edu.heldenspiel.Controller;
-import ps.edu.heldenspiel.Weapon;
+import ps.edu.heldenspiel.weapons.Weapon;
 
 import java.net.URL;
 
@@ -34,7 +34,7 @@ public class Hero {
   }
 
   public int getAttackDamage() {
-    return weapon.getDamage(this.strength);
+    return this.strength + weapon.getAttackDamage();
   }
 
   public void setWeapon(Weapon weapon) {
