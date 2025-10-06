@@ -1,11 +1,17 @@
 package ps.edu.heldenspiel.hero;
 
+import ps.edu.heldenspiel.Application;
 import ps.edu.heldenspiel.Controller;
 import ps.edu.heldenspiel.weapons.Weapon;
 
 import java.net.URL;
 
+import java.util.logging.Logger;
+import java.util.logging.Level;
+
 public class Hero {
+  private static final Logger LOGGER = Logger.getLogger(Hero.class.getName());
+
   private String name;
   protected int strength;
   protected int health;
@@ -14,6 +20,7 @@ public class Hero {
   Weapon weapon;
 
   public Hero(String name, int health, int strength, Weapon weapon) {
+    LOGGER.log(Level.INFO, "Init hero...");
     this.name = name;
     this.strength = strength;
     this.health = health;
@@ -22,6 +29,7 @@ public class Hero {
   }
 
   public Hero(String name, int health, int strength, int endurance, Weapon weapon) {
+    LOGGER.log(Level.INFO, "Init hero...");
     this.name = name;
     this.strength = strength;
     this.health = health;

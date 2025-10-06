@@ -1,6 +1,13 @@
 package ps.edu.heldenspiel.utils;
 
+import ps.edu.heldenspiel.Application;
+
+import java.util.logging.Logger;
+import java.util.logging.Level;
+
 public class CombatRule {
+  private static final Logger LOGGER = Logger.getLogger(CombatRule.class.getName());
+
   int heroDiceRoll;
   int monsterDiceRoll;
   String diceHeroName;
@@ -9,6 +16,7 @@ public class CombatRule {
   public CombatRule() {}
 
   public EntityType fight() {
+    LOGGER.log(Level.INFO, "Fight triggered...");
     Dice diceHero = selectDice();
     Dice diceMonster = selectDice();
 
@@ -31,6 +39,7 @@ public class CombatRule {
   }
 
   public Dice selectDice() {
+    LOGGER.log(Level.INFO, "Select dice...");
     Dice d2 = new Dice(1, 2, "2");
     Dice d6 = new Dice(1, 6, "6");
     Dice d10 = new Dice(1, 10, "10");

@@ -23,7 +23,12 @@ import ps.edu.heldenspiel.weapons.Broadsword;
 import ps.edu.heldenspiel.weapons.Dagger;
 import ps.edu.heldenspiel.weapons.Fist;
 
+import java.util.logging.Logger;
+import java.util.logging.Level;
+
 public class Controller implements Initializable {
+  private static final Logger LOGGER = Logger.getLogger(Controller.class.getName());
+
   // Ui items main_scene
   @FXML private Label health_uiLabel;
   @FXML private Label strength_uiLabel;
@@ -42,13 +47,15 @@ public class Controller implements Initializable {
   @FXML private Spinner newHeroHealth_uiSpinner;
   @FXML private Spinner newHeroStrength_uiSpinner;
   @FXML private Spinner newHeroEndurance_uiSpinner;
-  @FXML private Button createNewHero_uiButton;
 
   public Controller() throws IOException{
   }
 
   @Override
   public void initialize(URL location, ResourceBundle resources)  {
+    LOGGER.log(Level.INFO, "Init controller...");
+
+    LOGGER.log(Level.INFO, "Create weapons and add to ui...");
     // Init weapons
     ps.edu.heldenspiel.weapons.Weapon fist = new Fist();
     ps.edu.heldenspiel.weapons.Weapon dagger = new Dagger();
@@ -67,6 +74,7 @@ public class Controller implements Initializable {
     this.weapons.put(dagger.getName(), dagger);
     this.weapons.put(broadsword.getName(), broadsword);
 
+    LOGGER.log(Level.INFO, "Create heros and add to ui");
     // Init heros
     Hero magician = new Magician();
     Hero warrior = new Warrior();
@@ -86,6 +94,7 @@ public class Controller implements Initializable {
     // Set values of labels
     onChoiceBoxChanged();
 
+    LOGGER.log(Level.INFO, "Set maximum for spinners...");
     // Set min & max of spinners
     newHeroHealth_uiSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 100));
     newHeroStrength_uiSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 100));
@@ -93,6 +102,7 @@ public class Controller implements Initializable {
   }
 
   public void onChoiceBoxChanged() {
+    LOGGER.log(Level.INFO, "Choice box changed...");
     Hero currentHero = this.heros.get(hero_uiChoiceBox.getValue());
 
     // Set correct image of hero
@@ -107,6 +117,7 @@ public class Controller implements Initializable {
 
   @FXML
   protected void onStart_uiButton() throws IOException {
+    LOGGER.log(Level.INFO, "Start match...");
     // Get current Hero and set correct Weapon
     Hero currentHero = this.heros.get(hero_uiChoiceBox.getValue());
     currentHero.setWeapon(this.weapons.get(weapon_uiChoiceBox.getValue()));
@@ -122,6 +133,7 @@ public class Controller implements Initializable {
 
   @FXML
   protected void onCreateNewHero_uiButton() {
+    LOGGER.log(Level.INFO, "Create new hero...");
     // Get values of create new hero ui elements
     String newHeroName = newHeroName_uiTextField.getText();
     int newHeroHealth = (int) newHeroHealth_uiSpinner.getValue();
@@ -148,6 +160,7 @@ public class Controller implements Initializable {
 
   @FXML
   protected void onSetRandomValues_uiButton() {
+    LOGGER.log(Level.INFO, "Set random values for hero...");
     Random random = new Random();
     // Set random values in create new hero ui elements
     newHeroHealth_uiSpinner.getValueFactory().setValue(random.nextInt(1, 50));

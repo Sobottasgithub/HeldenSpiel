@@ -2,8 +2,9 @@ module ps.edu.heldenspiel {
   requires javafx.controls;
   requires javafx.fxml;
   requires javafx.web;
+    requires java.logging;
 
-  // requires org.controlsfx.controls;
+    // requires org.controlsfx.controls;
   // requires com.dlsc.formsfx;
   // requires net.synedra.validatorfx;
   // requires org.kordamp.ikonli.javafx;
