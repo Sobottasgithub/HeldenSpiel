@@ -21,6 +21,8 @@ public class MatchController {
     @FXML private ImageView hero_uiImageView;
     @FXML private ImageView monster_uiImageView;
     @FXML private Label turnBanner_uiLabel;
+    @FXML private Label heroDiceNumber_uiLabel;
+    @FXML private Label monsterDiceNumber_uiLabel;
     @FXML private Label heroDice_uiLabel;
     @FXML private Label monsterDice_uiLabel;
     @FXML private Label heroHealth_uiLabel;
@@ -93,9 +95,7 @@ public class MatchController {
                 turnBanner_uiLabel.setText("Equal!");
             }
 
-            // Set rolled dice number
-            heroDice_uiLabel.setText(String.valueOf(combatRule.getHeroDiceResult()));
-            monsterDice_uiLabel.setText(String.valueOf(combatRule.getMonsterDiceRoll()));
+            updateDice(combatRule);
         } else {
             throw new java.lang.RuntimeException("Unknown player action!");
         }
@@ -128,8 +128,8 @@ public class MatchController {
                     } else {
                         turnBanner_uiLabel.setText("Equal!");
                     }
-                    heroDice_uiLabel.setText(String.valueOf(combatRule.getHeroDiceResult()));
-                    monsterDice_uiLabel.setText(String.valueOf(combatRule.getMonsterDiceRoll()));
+
+                    updateDice(combatRule);
 
                     updateHealth();
                     // If the health of the hero or monster is 0, the winner is displayed, else enable ui
@@ -166,6 +166,13 @@ public class MatchController {
             pause.setOnFinished(e -> turnBanner_uiLabel.setText("HERO WINS!"));
             pause.play();
         }
+    }
+
+    public void updateDice(CombatRule combatRule) {
+        heroDiceNumber_uiLabel.setText(String.valueOf(combatRule.getHeroDiceResult()));
+        monsterDiceNumber_uiLabel.setText(String.valueOf(combatRule.getMonsterDiceRoll()));
+        heroDice_uiLabel.setText(combatRule.getDiceHeroName());
+        monsterDice_uiLabel.setText(combatRule.getDiceMonsterName());
     }
 
     @FXML

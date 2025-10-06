@@ -1,16 +1,19 @@
 package ps.edu.heldenspiel.utils;
 
-import ps.edu.heldenspiel.hero.Hero;
-
 public class CombatRule {
   int heroDiceRoll;
   int monsterDiceRoll;
+  String diceHeroName;
+  String diceMonsterName;
 
   public CombatRule() {}
 
   public EntityType fight() {
     Dice diceHero = selectDice();
     Dice diceMonster = selectDice();
+
+    diceHeroName = diceHero.getName();
+    diceMonsterName = diceMonster.getName();
 
     this.heroDiceRoll = diceHero.rollDice();
     this.monsterDiceRoll = diceMonster.rollDice();
@@ -28,9 +31,9 @@ public class CombatRule {
   }
 
   public Dice selectDice() {
-    Dice d2 = new Dice(1, 2, "d2");
-    Dice d6 = new Dice(1, 6, "d6");
-    Dice d10 = new Dice(1, 10, "d10");
+    Dice d2 = new Dice(1, 2, "2");
+    Dice d6 = new Dice(1, 6, "6");
+    Dice d10 = new Dice(1, 10, "10");
     if (d2.rollDice() == 1) {
       return d10;
     } else {
@@ -44,5 +47,13 @@ public class CombatRule {
 
   public int getMonsterDiceRoll() {
     return this.monsterDiceRoll;
+  }
+
+  public String getDiceHeroName() {
+    return this.diceHeroName;
+  }
+
+  public String getDiceMonsterName() {
+    return this.diceMonsterName;
   }
 }

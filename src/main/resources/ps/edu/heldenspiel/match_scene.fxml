@@ -65,12 +65,12 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
       </Label>
-      <Label fx:id="heroDice_uiLabel" style="-fx-border-color: black;" text="0" GridPane.halignment="CENTER">
+      <Label fx:id="heroDiceNumber_uiLabel" style="-fx-border-color: black;" text="0" GridPane.halignment="CENTER">
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
       </Label>
-      <Label fx:id="monsterDice_uiLabel" style="-fx-border-color: black;" text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+      <Label fx:id="monsterDiceNumber_uiLabel" style="-fx-border-color: black;" text="0" GridPane.columnIndex="2" GridPane.halignment="CENTER">
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
@@ -119,5 +119,21 @@
             </HBox>
          </children>
       </VBox>
+      <Label fx:id="heroDice_uiLabel" style="-fx-border-color: black;" text="0">
+         <GridPane.margin>
+            <Insets left="5.0" />
+         </GridPane.margin>
+         <padding>
+            <Insets bottom="2.0" left="4.0" right="4.0" top="2.0" />
+         </padding>
+      </Label>
+      <Label fx:id="monsterDice_uiLabel" style="-fx-border-color: black;" text="0" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+         <GridPane.margin>
+            <Insets right="5.0" />
+         </GridPane.margin>
+         <padding>
+            <Insets bottom="2.0" left="4.0" right="2.0" top="4.0" />
+         </padding>
+      </Label>
    </children>
 </GridPane>
