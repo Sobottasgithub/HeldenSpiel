@@ -15,11 +15,12 @@ public class Magician extends Hero {
     super(name, health, strength, weapon);
   }
 
-  public void healFriendly(Hero friendlyToHeal) {
-    if (friendlyToHeal.getMaxHealth() >= friendlyToHeal.getHealth() + weapon.getAttackDamage()) {
-      friendlyToHeal.setHealth(friendlyToHeal.getHealth() + weapon.getAttackDamage());
+  public void heal() {
+    // Set health + weapon damage or set health to max health
+    if (this.maxHealth >= this.health + weapon.getAttackDamage()) {
+      setHealth(this.health + weapon.getAttackDamage());
     } else {
-      friendlyToHeal.setHealth(friendlyToHeal.getMaxHealth());
+      setHealth(this.maxHealth);
     }
   }
 

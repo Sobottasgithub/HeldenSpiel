@@ -1,4 +1,4 @@
-package ps.edu.heldenspiel;
+package ps.edu.heldenspiel.utils;
 
 import java.util.Random;
 

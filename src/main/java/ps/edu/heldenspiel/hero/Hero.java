@@ -1,6 +1,5 @@
 package ps.edu.heldenspiel.hero;
 
-import ps.edu.heldenspiel.CombatRule;
 import ps.edu.heldenspiel.Controller;
 import ps.edu.heldenspiel.weapons.Weapon;
 
@@ -12,9 +11,7 @@ public class Hero {
   protected int health;
   protected int maxHealth;
   protected int endurance = 0;
-
   Weapon weapon;
-  CombatRule combatRule = new CombatRule();
 
   public Hero(String name, int health, int strength, Weapon weapon) {
     this.name = name;
@@ -41,6 +38,10 @@ public class Hero {
     this.weapon = weapon;
   }
 
+  public Weapon getWeapon() {
+    return weapon;
+  }
+
   public String getName() {
     return this.name;
   }
@@ -54,7 +55,12 @@ public class Hero {
   }
 
   public void setHealth(int health) {
-    this.health = health;
+    // Prevent health dropping below 0
+    if (health >= 0) {
+      this.health = health;
+    } else {
+      this.health = 0;
+    }
   }
 
   public int getMaxHealth() {

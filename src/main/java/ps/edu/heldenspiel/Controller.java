@@ -49,11 +49,12 @@ public class Controller implements Initializable {
 
   @Override
   public void initialize(URL location, ResourceBundle resources)  {
-    // Init weapons and add to choiceBox
+    // Init weapons
     ps.edu.heldenspiel.weapons.Weapon fist = new Fist();
     ps.edu.heldenspiel.weapons.Weapon dagger = new Dagger();
     ps.edu.heldenspiel.weapons.Weapon broadsword = new Broadsword();
 
+    // Add weapons to ui elements
     weapon_uiChoiceBox.getItems().add(fist.getName());
     weapon_uiChoiceBox.getItems().add(dagger.getName());
     weapon_uiChoiceBox.getItems().add(broadsword.getName());
@@ -66,11 +67,11 @@ public class Controller implements Initializable {
     this.weapons.put(dagger.getName(), dagger);
     this.weapons.put(broadsword.getName(), broadsword);
 
-
-    // Init heros with standart weapon "wood sword" and add to choiceBox
+    // Init heros
     Hero magician = new Magician();
     Hero warrior = new Warrior();
 
+    // Add to choicebox
     hero_uiChoiceBox.getItems().add(magician.getName());
     hero_uiChoiceBox.getItems().add(warrior.getName());
 
@@ -94,9 +95,11 @@ public class Controller implements Initializable {
   public void onChoiceBoxChanged() {
     Hero currentHero = this.heros.get(hero_uiChoiceBox.getValue());
 
+    // Set correct image of hero
     Image imageObject = new Image(String.valueOf(currentHero.getImagePath()));
     hero_imageView.setImage(imageObject);
 
+    // Set correct values in ui elements
     health_uiLabel.setText("Health: " + currentHero.getHealth());
     strength_uiLabel.setText("Strength: " + currentHero.getStrength() + " + " + this.weapons.get(weapon_uiChoiceBox.getValue()).getAttackDamage());
     endurance_uiLabel.setText("Endurance: " + currentHero.getEndurance());
@@ -104,18 +107,22 @@ public class Controller implements Initializable {
 
   @FXML
   protected void onStart_uiButton() throws IOException {
-    Monster monster = new Monster();
-    CombatRule combatRule = new CombatRule();
+    // Get current Hero and set correct Weapon
+    Hero currentHero = this.heros.get(hero_uiChoiceBox.getValue());
+    currentHero.setWeapon(this.weapons.get(weapon_uiChoiceBox.getValue()));
 
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("matchScene.fxml"));
+    // Load match scene and pass current hero to controller
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("match_scene.fxml"));
     Stage stage = new Stage();
     stage.setScene(new Scene(loader.load()));
+    MatchController controller = loader.getController();
+    controller.initMatchScene(currentHero);
     stage.show();
   }
 
   @FXML
   protected void onCreateNewHero_uiButton() {
-    // Get values
+    // Get values of create new hero ui elements
     String newHeroName = newHeroName_uiTextField.getText();
     int newHeroHealth = (int) newHeroHealth_uiSpinner.getValue();
     int newHeroStrength = (int) newHeroStrength_uiSpinner.getValue();
@@ -142,6 +149,7 @@ public class Controller implements Initializable {
   @FXML
   protected void onSetRandomValues_uiButton() {
     Random random = new Random();
+    // Set random values in create new hero ui elements
     newHeroHealth_uiSpinner.getValueFactory().setValue(random.nextInt(1, 50));
     newHeroStrength_uiSpinner.getValueFactory().setValue(random.nextInt(1, 50));
     newHeroEndurance_uiSpinner.getValueFactory().setValue(random.nextInt(1, 50));
