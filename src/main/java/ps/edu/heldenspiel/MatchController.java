@@ -88,7 +88,7 @@ public class MatchController {
         heal_uiButton.setDisable(true);
 
         // Check if player action is heal or attack
-        if(playerAction == playerAction.HEAL) {
+        if (hero instanceof Magician && playerAction == playerAction.HEAL) {
             ((Magician) hero).heal();
             turnBanner_uiLabel.setText("Healed!");
             LOGGER.log(Level.INFO, "Player healed!");
