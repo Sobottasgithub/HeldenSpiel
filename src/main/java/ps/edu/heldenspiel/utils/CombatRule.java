@@ -1,9 +1,8 @@
 package ps.edu.heldenspiel.utils;
 
-import ps.edu.heldenspiel.Application;
 
-import java.util.logging.Logger;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class CombatRule {
   private static final Logger LOGGER = Logger.getLogger(CombatRule.class.getName());

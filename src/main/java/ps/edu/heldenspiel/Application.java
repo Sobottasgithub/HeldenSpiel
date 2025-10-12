@@ -1,12 +1,11 @@
 package ps.edu.heldenspiel;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.util.logging.Logger;
-import java.util.logging.Level;
 
 public class Application extends javafx.application.Application {
   private static final Logger LOGGER = Logger.getLogger(Application.class.getName());

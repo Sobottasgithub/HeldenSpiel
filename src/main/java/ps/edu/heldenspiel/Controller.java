@@ -1,14 +1,16 @@
 package ps.edu.heldenspiel;
 
-import javafx.fxml.FXML;
 import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.ResourceBundle;
 import java.util.Random;
-
+import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -17,14 +19,10 @@ import javafx.stage.Stage;
 import ps.edu.heldenspiel.hero.Hero;
 import ps.edu.heldenspiel.hero.Magician;
 import ps.edu.heldenspiel.hero.Warrior;
-import javafx.fxml.Initializable;
-import ps.edu.heldenspiel.weapons.Weapon;
 import ps.edu.heldenspiel.weapons.Broadsword;
 import ps.edu.heldenspiel.weapons.Dagger;
 import ps.edu.heldenspiel.weapons.Fist;
-
-import java.util.logging.Logger;
-import java.util.logging.Level;
+import ps.edu.heldenspiel.weapons.Weapon;
 
 public class Controller implements Initializable {
   private static final Logger LOGGER = Logger.getLogger(Controller.class.getName());
@@ -48,11 +46,10 @@ public class Controller implements Initializable {
   @FXML private Spinner newHeroStrength_uiSpinner;
   @FXML private Spinner newHeroEndurance_uiSpinner;
 
-  public Controller() throws IOException{
-  }
+  public Controller() throws IOException {}
 
   @Override
-  public void initialize(URL location, ResourceBundle resources)  {
+  public void initialize(URL location, ResourceBundle resources) {
     LOGGER.log(Level.INFO, "Init controller...");
 
     LOGGER.log(Level.INFO, "Create weapons and add to ui...");
@@ -67,7 +64,10 @@ public class Controller implements Initializable {
     weapon_uiChoiceBox.getItems().add(broadsword.getName());
     weapon_uiChoiceBox.getSelectionModel().selectFirst();
 
-    weapon_uiChoiceBox.setOnAction((event) -> {onChoiceBoxChanged();});
+    weapon_uiChoiceBox.setOnAction(
+        (event) -> {
+          onChoiceBoxChanged();
+        });
 
     // Add weapons to hashmap
     this.weapons.put(fist.getName(), fist);
@@ -85,7 +85,10 @@ public class Controller implements Initializable {
 
     hero_uiChoiceBox.getSelectionModel().selectFirst();
 
-    hero_uiChoiceBox.setOnAction((event) -> {onChoiceBoxChanged();});
+    hero_uiChoiceBox.setOnAction(
+        (event) -> {
+          onChoiceBoxChanged();
+        });
 
     // Add heros to hashmap
     this.heros.put(magician.getName(), magician);
@@ -96,9 +99,12 @@ public class Controller implements Initializable {
 
     LOGGER.log(Level.INFO, "Set maximum for spinners...");
     // Set min & max of spinners
-    newHeroHealth_uiSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 100));
-    newHeroStrength_uiSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 100));
-    newHeroEndurance_uiSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 100));
+    newHeroHealth_uiSpinner.setValueFactory(
+        new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 100));
+    newHeroStrength_uiSpinner.setValueFactory(
+        new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 100));
+    newHeroEndurance_uiSpinner.setValueFactory(
+        new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 100));
   }
 
   public void onChoiceBoxChanged() {
@@ -111,7 +117,11 @@ public class Controller implements Initializable {
 
     // Set correct values in ui elements
     health_uiLabel.setText("Health: " + currentHero.getHealth());
-    strength_uiLabel.setText("Strength: " + currentHero.getStrength() + " + " + this.weapons.get(weapon_uiChoiceBox.getValue()).getAttackDamage());
+    strength_uiLabel.setText(
+        "Strength: "
+            + currentHero.getStrength()
+            + " + "
+            + this.weapons.get(weapon_uiChoiceBox.getValue()).getAttackDamage());
     endurance_uiLabel.setText("Endurance: " + currentHero.getEndurance());
   }
 
@@ -141,7 +151,7 @@ public class Controller implements Initializable {
     int newHeroEndurance = (int) newHeroEndurance_uiSpinner.getValue();
 
     // Set color to red if no name is given
-    if(newHeroName.isEmpty()) {
+    if (newHeroName.isEmpty()) {
       newHeroName_uiTextField.setStyle("-fx-background-color: red;");
     } else {
       // Clear input values
@@ -152,7 +162,8 @@ public class Controller implements Initializable {
       newHeroEndurance_uiSpinner.getValueFactory().setValue(1);
 
       // Create new Hero and add to ui
-      Hero hero = new Hero(newHeroName, newHeroHealth, newHeroStrength, newHeroEndurance, new Fist());
+      Hero hero =
+          new Hero(newHeroName, newHeroHealth, newHeroStrength, newHeroEndurance, new Fist());
       hero_uiChoiceBox.getItems().add(hero.getName());
       this.heros.put(hero.getName(), hero);
     }

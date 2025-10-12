@@ -1,10 +1,9 @@
 package ps.edu.heldenspiel.hero;
 
+import java.net.URL;
 import ps.edu.heldenspiel.Controller;
 import ps.edu.heldenspiel.weapons.Fist;
 import ps.edu.heldenspiel.weapons.Weapon;
-
-import java.net.URL;
 
 public class Magician extends Hero {
   public Magician() {

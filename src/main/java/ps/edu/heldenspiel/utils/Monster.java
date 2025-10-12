@@ -1,11 +1,9 @@
 package ps.edu.heldenspiel.utils;
 
-import ps.edu.heldenspiel.Application;
 
 import java.util.Random;
-
-import java.util.logging.Logger;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Monster {
   private static final Logger LOGGER = Logger.getLogger(Monster.class.getName());
@@ -18,7 +16,7 @@ public class Monster {
     LOGGER.log(Level.INFO, "Init Monster...");
     Random random = new Random();
 
-    this.attackDamage = random.nextInt(5,  14);
+    this.attackDamage = random.nextInt(5, 14);
     this.health = random.nextInt(10, 40);
     this.maxHealth = this.health;
   }

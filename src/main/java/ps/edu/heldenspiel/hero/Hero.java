@@ -1,13 +1,10 @@
 package ps.edu.heldenspiel.hero;
 
-import ps.edu.heldenspiel.Application;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import ps.edu.heldenspiel.Controller;
 import ps.edu.heldenspiel.weapons.Weapon;
-
-import java.net.URL;
-
-import java.util.logging.Logger;
-import java.util.logging.Level;
 
 public class Hero {
   private static final Logger LOGGER = Logger.getLogger(Hero.class.getName());

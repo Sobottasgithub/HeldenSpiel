@@ -1,10 +1,9 @@
 package ps.edu.heldenspiel.hero;
 
-import ps.edu.heldenspiel.Controller;
-import ps.edu.heldenspiel.weapons.Weapon;
-import ps.edu.heldenspiel.weapons.Fist;
-
 import java.net.URL;
+import ps.edu.heldenspiel.Controller;
+import ps.edu.heldenspiel.weapons.Fist;
+import ps.edu.heldenspiel.weapons.Weapon;
 
 public class Warrior extends Hero {
   private int endurance = 2;
