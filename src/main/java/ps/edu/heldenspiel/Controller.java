@@ -16,13 +16,8 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import ps.edu.heldenspiel.hero.Hero;
-import ps.edu.heldenspiel.hero.Magician;
-import ps.edu.heldenspiel.hero.Warrior;
-import ps.edu.heldenspiel.weapons.Broadsword;
-import ps.edu.heldenspiel.weapons.Dagger;
-import ps.edu.heldenspiel.weapons.Fist;
-import ps.edu.heldenspiel.weapons.Weapon;
+import ps.edu.heldenspiel.hero.*;
+import ps.edu.heldenspiel.weapons.*;
 
 public class Controller implements Initializable {
   private static final Logger LOGGER = Logger.getLogger(Controller.class.getName());
@@ -54,14 +49,16 @@ public class Controller implements Initializable {
 
     LOGGER.log(Level.INFO, "Create weapons and add to ui...");
     // Init weapons
-    ps.edu.heldenspiel.weapons.Weapon fist = new Fist();
-    ps.edu.heldenspiel.weapons.Weapon dagger = new Dagger();
-    ps.edu.heldenspiel.weapons.Weapon broadsword = new Broadsword();
+    Weapon fist = new Fist();
+    Weapon dagger = new Dagger();
+    Weapon broadsword = new Broadsword();
+    Weapon bow = new Bow();
 
     // Add weapons to ui elements
     weapon_uiChoiceBox.getItems().add(fist.getName());
     weapon_uiChoiceBox.getItems().add(dagger.getName());
     weapon_uiChoiceBox.getItems().add(broadsword.getName());
+    weapon_uiChoiceBox.getItems().add(bow.getName());
     weapon_uiChoiceBox.getSelectionModel().selectFirst();
 
     weapon_uiChoiceBox.setOnAction(
@@ -73,15 +70,20 @@ public class Controller implements Initializable {
     this.weapons.put(fist.getName(), fist);
     this.weapons.put(dagger.getName(), dagger);
     this.weapons.put(broadsword.getName(), broadsword);
+    this.weapons.put(bow.getName(), bow);
 
     LOGGER.log(Level.INFO, "Create heros and add to ui");
     // Init heros
     Hero magician = new Magician();
     Hero warrior = new Warrior();
+    Hero archer = new Archer();
+    Hero priest = new Priest();
 
     // Add to choicebox
     hero_uiChoiceBox.getItems().add(magician.getName());
     hero_uiChoiceBox.getItems().add(warrior.getName());
+    hero_uiChoiceBox.getItems().add(archer.getName());
+    hero_uiChoiceBox.getItems().add(priest.getName());
 
     hero_uiChoiceBox.getSelectionModel().selectFirst();
 
@@ -93,6 +95,8 @@ public class Controller implements Initializable {
     // Add heros to hashmap
     this.heros.put(magician.getName(), magician);
     this.heros.put(warrior.getName(), warrior);
+    this.heros.put(archer.getName(), archer);
+    this.heros.put(priest.getName(), priest);
 
     // Set values of labels
     onChoiceBoxChanged();
@@ -110,6 +114,18 @@ public class Controller implements Initializable {
   public void onChoiceBoxChanged() {
     LOGGER.log(Level.INFO, "Choice box changed...");
     Hero currentHero = this.heros.get(hero_uiChoiceBox.getValue());
+
+    if (currentHero instanceof Archer) {
+      LOGGER.log(Level.INFO, "Select bow and lock combobox");
+      weapon_uiChoiceBox.getSelectionModel().select("Bow");
+      weapon_uiChoiceBox.setDisable(true);
+    } else if (currentHero instanceof Priest) {
+      LOGGER.log(Level.INFO, "Select fist and lock combobox");
+      weapon_uiChoiceBox.getSelectionModel().select("Fist");
+      weapon_uiChoiceBox.setDisable(true);
+    } else {
+      weapon_uiChoiceBox.setDisable(false);
+    }
 
     // Set correct image of hero
     Image imageObject = new Image(String.valueOf(currentHero.getImagePath()));
