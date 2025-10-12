@@ -12,6 +12,7 @@ import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 import ps.edu.heldenspiel.hero.Hero;
 import ps.edu.heldenspiel.hero.Magician;
+import ps.edu.heldenspiel.hero.Priest;
 import ps.edu.heldenspiel.utils.CombatRule;
 import ps.edu.heldenspiel.utils.EntityType;
 import ps.edu.heldenspiel.utils.Monster;
@@ -59,6 +60,10 @@ public class MatchController {
     // Disable heal button if hero is not of class Magician
     if (this.hero.getClass() != Magician.class) {
       heal_uiButton.setVisible(false);
+    }
+
+    if (this.hero.getClass() == Priest.class) {
+      attack_uiButton.setText("Divinus Interventu");
     }
 
     updateHealth();
