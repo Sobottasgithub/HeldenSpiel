@@ -2,10 +2,7 @@ package ps.edu.heldenspiel;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXML;
@@ -167,7 +164,7 @@ public class Controller implements Initializable {
     int newHeroEndurance = (int) newHeroEndurance_uiSpinner.getValue();
 
     // Set color to red if no name is given
-    if (newHeroName.isEmpty()) {
+    if (newHeroName.isEmpty() || Arrays.asList(this.heros.keySet().toArray()).contains(newHeroName)) {
       newHeroName_uiTextField.setStyle("-fx-background-color: red;");
     } else {
       // Clear input values
