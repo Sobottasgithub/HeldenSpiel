@@ -7,7 +7,7 @@ import ps.edu.heldenspiel.weapons.Weapon;
 
 public class Magician extends Hero {
   public Magician() {
-    super("Magician", 12, 12, new Fist());
+    super("Magician", 12, 1, new Fist());
   }
 
   public Magician(String name, int health, int strength, Weapon weapon) {

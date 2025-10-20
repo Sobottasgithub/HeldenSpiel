@@ -10,7 +10,7 @@ public class Archer extends Hero {
   Dice d100 = new Dice(0, 100, "d100");
 
   public Archer() {
-    super("Archer", 20, 10, new Dagger());
+    super("Archer", 20, 2, new Dagger());
   }
 
   public Archer(String name, int health, int strength, Weapon weapon) {

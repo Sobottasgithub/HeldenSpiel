@@ -15,7 +15,7 @@ public class Monster {
     LOGGER.log(Level.INFO, "Init Monster...");
     Random random = new Random();
 
-    this.attackDamage = random.nextInt(5, 14);
+    this.attackDamage = random.nextInt(1, 6);
     this.health = random.nextInt(10, 40);
     this.maxHealth = this.health;
   }

@@ -13,7 +13,7 @@ public class Priest extends Hero {
   Dice d100 = new Dice(0, 100, "d100");
 
   public Priest() {
-    super("Priest", 20, 10, new Fist());
+    super("Priest", 20, 15, new Fist());
   }
 
   public Priest(String name, int health, int strength, Weapon weapon) {
