@@ -18,12 +18,7 @@ public class Warrior extends Hero {
 
   @Override
   public int getAttackDamage() {
-    return this.strength + this.endurance + this.weapon.getAttackDamage();
-  }
-
-  @Override
-  public int getEndurance() {
-    return endurance;
+    return getStrength() + getEndurance() + getWeapon().getAttackDamage();
   }
 
   @Override

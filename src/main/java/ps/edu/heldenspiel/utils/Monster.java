@@ -7,24 +7,20 @@ import java.util.logging.Logger;
 public class Monster {
   private static final Logger LOGGER = Logger.getLogger(Monster.class.getName());
 
-  int attackDamage;
-  int health;
-  int maxHealth;
+  private final int attackDamage;
+  private int health;
+  private final int maxHealth;
+
+  private static final Random random = new Random();
 
   public Monster() {
-    LOGGER.log(Level.INFO, "Init Monster...");
-    Random random = new Random();
-
-    this.attackDamage = random.nextInt(1, 6);
-    this.health = random.nextInt(10, 40);
-    this.maxHealth = this.health;
+    this(random.nextInt(1, 6), random.nextInt(10, 40));
   }
 
   public Monster(int attackDamage, int health) {
     LOGGER.log(Level.INFO, "Init Monster...");
     this.attackDamage = attackDamage;
-    this.health = health;
-    this.maxHealth = this.health;
+    this.health = maxHealth = health;
   }
 
   public int getAttackDamage() {
@@ -35,15 +31,11 @@ public class Monster {
     return health;
   }
 
-  public void setHealth(int health) {
-    if (health >= 0) {
-      this.health = health;
-    } else {
-      this.health = 0;
-    }
+  public int getMaxHealth() {
+    return maxHealth;
   }
 
-  public int getMaxHealth() {
-    return this.maxHealth;
+  public void setHealth(int health) {
+    this.health = (health >= 0) ? health : 0;
   }
 }

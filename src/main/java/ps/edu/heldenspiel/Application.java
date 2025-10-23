@@ -12,7 +12,7 @@ public class Application extends javafx.application.Application {
 
   @Override
   public void start(Stage stage) throws IOException {
-    LOGGER.log(Level.INFO, "Building App...");
+    LOGGER.log(Level.INFO, "Starting HeldenSpiel...");
     FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("main_scene.fxml"));
     Scene scene = new Scene(fxmlLoader.load(), 650, 300);
     stage.setTitle("Heldenspiel");

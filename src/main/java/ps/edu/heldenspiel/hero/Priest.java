@@ -10,7 +10,7 @@ import ps.edu.heldenspiel.weapons.Weapon;
 
 public class Priest extends Hero {
   private static final Logger LOGGER = Logger.getLogger(Priest.class.getName());
-  Dice d100 = new Dice(0, 100, "d100");
+  private final Dice d100 = new Dice(0, 100, "d100");
 
   public Priest() {
     super("Priest", 20, 15, new Fist());
@@ -20,6 +20,7 @@ public class Priest extends Hero {
     super(name, health, strength, weapon);
   }
 
+  @Override
   public int getAttackDamage() {
     LOGGER.log(Level.INFO, "DivinusInterventu!");
     if (d100.rollDice() == 100) {

@@ -164,7 +164,8 @@ public class Controller implements Initializable {
     int newHeroEndurance = (int) newHeroEndurance_uiSpinner.getValue();
 
     // Set color to red if no name is given
-    if (newHeroName.isEmpty() || Arrays.asList(this.heros.keySet().toArray()).contains(newHeroName)) {
+    if (newHeroName.isEmpty()
+        || Arrays.asList(this.heros.keySet().toArray()).contains(newHeroName)) {
       newHeroName_uiTextField.setStyle("-fx-background-color: red;");
     } else {
       // Clear input values

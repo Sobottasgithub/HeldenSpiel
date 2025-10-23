@@ -16,10 +16,10 @@ public class Magician extends Hero {
 
   public void heal() {
     // Set health + weapon damage or set health to max health
-    if (this.maxHealth >= this.health + weapon.getAttackDamage()) {
-      setHealth(this.health + weapon.getAttackDamage());
+    if (getMaxHealth() >= getHealth() + getWeapon().getAttackDamage()) {
+      setHealth(getHealth() + getWeapon().getAttackDamage());
     } else {
-      setHealth(this.maxHealth);
+      setHealth(getMaxHealth());
     }
   }
 

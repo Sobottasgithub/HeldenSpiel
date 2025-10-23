@@ -10,9 +10,7 @@ public class Dice {
   private int start;
   private int end;
   private String name;
-  Random dice = new Random();
-
-  public Dice() {}
+  private Random random = new Random();
 
   public Dice(int start, int end, String name) {
     LOGGER.log(Level.INFO, "Init dice...");
@@ -28,7 +26,7 @@ public class Dice {
 
   public int rollDice() {
     LOGGER.log(Level.INFO, "Roll dice...");
-    return this.dice.nextInt(start, end + 1);
+    return random.nextInt(start, end + 1);
   }
 
   public String getName() {

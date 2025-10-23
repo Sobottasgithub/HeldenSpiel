@@ -20,7 +20,7 @@
         inherit jdk;
         default = maven.buildMavenPackage {
           pname = "HeldenSpiel";
-          version = "1.0.0";
+          version = "1.1.0";
           src = ./.;
           mvnHash = "sha256-my6yElw8xJN8w74ql7MzeGfu2X59md9620qSK5XJE6A=";
           mvnJdk = jdk;

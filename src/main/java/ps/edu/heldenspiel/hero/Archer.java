@@ -7,7 +7,7 @@ import ps.edu.heldenspiel.weapons.Dagger;
 import ps.edu.heldenspiel.weapons.Weapon;
 
 public class Archer extends Hero {
-  Dice d100 = new Dice(0, 100, "d100");
+  private final Dice d100 = new Dice(0, 100, "d100");
 
   public Archer() {
     super("Archer", 20, 2, new Dagger());
@@ -19,10 +19,9 @@ public class Archer extends Hero {
 
   @Override
   public int getAttackDamage() {
-    int damage = weapon.getAttackDamage();
-    int hitPercentage = (int) 3.75 * strength + 25; // uses f(x) = 3.75X+25 as a function
-    if (d100.rollDice() <= hitPercentage) {
-      return damage * 2;
+    // uses f(x) = 3.75X+25 as a function
+    if (d100.rollDice() <= (int) 3.75 * getStrength() + 25) {
+      return getWeapon().getAttackDamage() * 2;
     }
     return 0;
   }

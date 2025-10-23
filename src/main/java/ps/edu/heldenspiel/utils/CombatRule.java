@@ -6,10 +6,10 @@ import java.util.logging.Logger;
 public class CombatRule {
   private static final Logger LOGGER = Logger.getLogger(CombatRule.class.getName());
 
-  int heroDiceRoll;
-  int monsterDiceRoll;
-  String diceHeroName;
-  String diceMonsterName;
+  private int heroDiceRoll;
+  private int monsterDiceRoll;
+  private String diceHeroName;
+  private String diceMonsterName;
 
   public CombatRule() {}
 
@@ -49,18 +49,18 @@ public class CombatRule {
   }
 
   public int getHeroDiceResult() {
-    return this.heroDiceRoll;
+    return heroDiceRoll;
   }
 
   public int getMonsterDiceRoll() {
-    return this.monsterDiceRoll;
+    return monsterDiceRoll;
   }
 
   public String getDiceHeroName() {
-    return this.diceHeroName;
+    return diceHeroName;
   }
 
   public String getDiceMonsterName() {
-    return this.diceMonsterName;
+    return diceMonsterName;
   }
 }

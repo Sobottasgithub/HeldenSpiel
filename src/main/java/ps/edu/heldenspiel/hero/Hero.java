@@ -9,20 +9,15 @@ import ps.edu.heldenspiel.weapons.Weapon;
 public class Hero {
   private static final Logger LOGGER = Logger.getLogger(Hero.class.getName());
 
-  private String name;
-  protected int strength;
-  protected int health;
-  protected int maxHealth;
-  protected int endurance = 0;
-  Weapon weapon;
+  private final String name;
+  private final int strength;
+  private int health;
+  private final int maxHealth;
+  private final int endurance;
+  private Weapon weapon;
 
   public Hero(String name, int health, int strength, Weapon weapon) {
-    LOGGER.log(Level.INFO, "Init hero...");
-    this.name = name;
-    this.strength = strength;
-    this.health = health;
-    this.weapon = weapon;
-    this.maxHealth = health;
+    this(name, health, strength, 0, weapon);
   }
 
   public Hero(String name, int health, int strength, int endurance, Weapon weapon) {
@@ -36,7 +31,7 @@ public class Hero {
   }
 
   public int getAttackDamage() {
-    return this.strength + weapon.getAttackDamage();
+    return strength + weapon.getAttackDamage();
   }
 
   public void setWeapon(Weapon weapon) {
@@ -48,24 +43,20 @@ public class Hero {
   }
 
   public String getName() {
-    return this.name;
+    return name;
   }
 
   public int getHealth() {
-    return this.health;
+    return health;
   }
 
   public int getStrength() {
-    return this.strength;
+    return strength;
   }
 
   public void setHealth(int health) {
     // Prevent health dropping below 0
-    if (health >= 0) {
-      this.health = health;
-    } else {
-      this.health = 0;
-    }
+    this.health = (health >= 0) ? health : 0;
   }
 
   public int getMaxHealth() {
